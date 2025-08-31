@@ -1,0 +1,19 @@
+services:
+  ollama:
+    image: ollama/ollama
+    container_name: ollama
+    hostname: ollama-host
+    ports:
+      - "11434:11434"
+    volumes:
+      - ollama:/root/.ollama
+    restart: unless-stopped
+    networks:
+      - rede_interna
+
+volumes:
+  ollama:
+
+networks:
+  rede_interna:
+    external: true
